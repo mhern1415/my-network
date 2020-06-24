@@ -12,10 +12,10 @@ import ContactDelete from './contacts/ContactDelete'
 
 const App = () => {
     return (
-        <div>
-            <h1>Header</h1>
+        <div className="ui component">  
             <BrowserRouter>
                 <div>
+                <Header />
                 <Route path="/" exact component={ContactListContainer}/>
                 <Route path="/contacts" exact component={ContactListContainer}/>
                 <Route path="/contacts/new" exact component={ContactFormContainer}/>
