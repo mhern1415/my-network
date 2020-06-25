@@ -5,6 +5,7 @@ import ContactListContainer from './contacts/ContactListContainer'
 import ContactList from './contacts/ContactList'
 import ContactShow from './contacts/ContactShow'
 import Header from './Header'
+import Footer from './Footer'
 import ContactEditContainer from './contacts/ContactEditContainer'
 import ContactDelete from './contacts/ContactDelete'
 
@@ -24,6 +25,9 @@ const App = () => {
                 <Route path="/contacts/delete" exact component={ContactDelete}/>
                 </div>
             </BrowserRouter>
+        <div>
+        <Footer />
+        </div>
         </div>
     )
 }
