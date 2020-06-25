@@ -25,7 +25,7 @@ class ContactForm extends React.Component {
 
     handleOnSubmit(event){
         event.preventDefault();
-        this.props.addLog(this.state, this.props.history)
+        this.props.addContact(this.state, this.props.history)
         this.setState({
             contact_name: '',
             relationship: '',
