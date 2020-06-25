@@ -7,6 +7,11 @@ const Header = () => {
             <Link to="/" className="item">
                 MyNetwork
             </Link>
+            <div className="center menu">
+                <Link to="/contacts/new" className="item">
+                    Add Contact
+                </Link>
+            </div>
             <div className="right menu">
                 <Link to="/" className="item">
                     All Contacts
