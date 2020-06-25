@@ -7,10 +7,10 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 
-///const composedEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composedEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-   reducers
-    ///composedEnhancers(applyMiddleware(reduxThunk))
+   reducers,
+   composedEnhancers(applyMiddleware(reduxThunk))
 );
 
 
