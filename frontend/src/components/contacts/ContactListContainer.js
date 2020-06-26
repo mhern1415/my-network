@@ -1,19 +1,21 @@
 import React from 'react';
+import ContactList from './ContactList';
 ///import ContactForm from './ContactForm';
 ///import { connect } from 'react-redux';
 
-class ContactListContainer extends React.Component {
+const ContactListContainer = () => {
 
 
 
-render() {
+
     return (
-        <div>
+
+     <div>
             <h3>ListContainer Contact</h3>
-            
+            <div><ContactList /></div>
         </div>
     )
-}
+
 
 
 }

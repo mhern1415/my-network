@@ -15,6 +15,16 @@ export const signOut = () => {
     };
 };
 
+export const getContacts = () => {
+    return dispatch => {
+        dispatch({type: "LOADING_CONTACTS"});
+        return fetch ('http://localhost:3002/contacts')
+        .then(resp => resp.json())
+        .then(contacts => dispatch({type: "LOADED_CONTACTS", payload: contacts}))
+    }
+}
+
+
 export const addContact = (contact, history) => {
     return dispatch => {
       return fetch('http://localhost:3002/contacts', {
