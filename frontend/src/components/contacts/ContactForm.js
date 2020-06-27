@@ -1,5 +1,7 @@
 import React from 'react';
 import ContactFormContainer from './ContactFormContainer';
+import authReducer from '../../reducers/authReducer'
+import { connect } from 'react-redux';
 
 class ContactForm extends React.Component {
     
@@ -13,19 +15,33 @@ class ContactForm extends React.Component {
             job_title: '',
             date: '',
             linkedin_url: '',
-            other_url: ''
+            other_url: '',
+            userId: ''            
+
         }
     }
 
     handleOnChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
         })
     }
 
     handleOnSubmit(event){
         event.preventDefault();
-        this.props.addContact(this.state, this.props.history)
+
+        var request = {
+            contact_name: this.state.contact_name,
+            userId: this.props.currentUserId,
+            relationship: this.state.relationship,
+            current_company: this.state.current_company,
+            job_title: this.state.job_title,
+            date: this.state.date,
+            linkedin_url: this.state.linkedin_url,
+            other_url: this.state.other_url
+          }      
+        
+        this.props.addContact(request, this.props.history)
         this.setState({
             contact_name: '',
             relationship: '',
@@ -33,7 +49,9 @@ class ContactForm extends React.Component {
             job_title: '',
             date: '',
             linkedin_url: '',
-            other_url: ''
+            other_url: '',
+            user_id: ''
+            
         })
     }
 
@@ -134,4 +152,23 @@ class ContactForm extends React.Component {
     }
 }
 
-export default ContactForm;
+///<div className="field">
+   ///                         <label>User ID</label>
+      ///                      <input
+         ///                   name="user_id"
+            ///                type="integer"
+               ///             value={this.props.currentUserId}
+                  ///          onChange={(event) => this.handleOnChange(event)}
+                     ///       placeholder="facebook.com"
+                        ///    required
+                           /// autoComplete="off"
+                            ////>
+                        ///</div>
+
+const mapStateToProps = state => {
+    return {
+        currentUserId: state.auth.userId
+};
+};
+
+export default connect(mapStateToProps)(ContactForm);

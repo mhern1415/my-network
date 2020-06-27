@@ -24,6 +24,7 @@ renderList = () => {
                             <li>Job Title: {contact.job_title}</li>
                             <li>LinkedIn Url: {contact.linkedin_url}</li>
                             <li>Other Url: {contact.other_url}</li>
+                            <li>USERID: {contact.userId}</li>
                         </ul>
                     </div>
                 </div>
