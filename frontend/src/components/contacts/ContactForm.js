@@ -38,7 +38,7 @@ class ContactForm extends React.Component {
             job_title: this.state.job_title,
             date: this.state.date,
             linkedin_url: this.state.linkedin_url,
-            other_url: this.state.other_url
+            other_url: this.props.currentUserEmail
           }      
         
         this.props.addContact(request, this.props.history)
@@ -167,7 +167,8 @@ class ContactForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        currentUserId: state.auth.userId
+        currentUserId: state.auth.userId,
+        currentUserEmail: state.auth.userEmail
 };
 };
 

@@ -13,7 +13,7 @@ const Header = () => {
                 </Link>
             </div>
             <div className="right menu">
-                <Link to="/" className="item">
+                <Link to="/contacts/all" className="item">
                     All Contacts
                 </Link>
                 <GoogleAuth />

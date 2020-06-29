@@ -2,9 +2,8 @@ import React from 'react';
 import { getContacts } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteContact } from '../../reducers/contactReducer';
 
-class ContactList extends React.Component {
+class ContactAll extends React.Component {
 
 componentDidMount(props){
     this.props.getContacts();
@@ -12,8 +11,8 @@ componentDidMount(props){
 
 
 renderList = () => {
-    const myContacts = this.props.contacts.filter(contact => contact.userId === this.props.currentUserId);
-    return myContacts.map(contact => {
+
+    return this.props.contacts.map(contact => {
         return (
             <div className="item" key={contact.id}>
                 <div className="content">
@@ -31,8 +30,6 @@ renderList = () => {
                         </ul>
                         <div><img src={contact.linkedin_url} alt={`${this.props.title}'s picture`}  className="img-responsive" /></div>
                         <div><a href={"mailto:" + contact.other_url}>email</a></div>
-                        <Link to={`/contacts/all`} onClick={() => this.props.deleteContact(contact.id)}> Delete </Link>
-
                     </div>
                 </div>
             </div>
@@ -58,4 +55,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getContacts, deleteContact})(ContactList);
+export default connect(mapStateToProps, {getContacts})(ContactAll);

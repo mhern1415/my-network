@@ -2,10 +2,11 @@ import { SIGN_IN, SIGN_OUT } from './types';
 import contacts from '../apis/contacts';
 import axios from 'axios'
 
-export const signIn = (userId) => {
+export const signIn = (userId, userEmail) => {
     return {
         type: SIGN_IN,
-        payload: userId
+        payload: userId,
+        payloadEmail: userEmail
     };
 };
 
@@ -38,4 +39,14 @@ export const addContact = (contact, history) => {
         }
       )
     }
+  }
+
+  export const destroyContact = (id) => {
+      return fetch(`http://localhost:3002/contacts/${id}`, {
+          method: 'DELETE',
+          headers: {
+              'Accept': 'applications/json',
+              'Content-Type': 'application/json'
+          }
+      })
   }
